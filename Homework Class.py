@@ -25,8 +25,7 @@ class Car(Machine):
         self.number_of_passengers = number_of_passengers
         self.number_of_doors = number_of_doors
         self.engine_location = engine_location
-
-
+        self.__a = 2
 
     def show_car_specifications(self):
         specifications = {'Type of machine': self.machine_type,
@@ -42,12 +41,17 @@ class Car(Machine):
         for specification_key in specifications:
             print(specification_key, ':', specifications[specification_key])
 
+    def __str__(self):
+        return "{}".format(self.show_car_specifications())
+
+
 class Human:
 
-    def __init__(self, age=20, sex=male, drivers_license=True):
+    def __init__(self, age=20, sex='male', drivers_license=True):
         self.age = age
         self.sex = sex
         self.drivers_license = drivers_license
+
 
 class Driver(Human):
 
@@ -67,10 +71,11 @@ porsche_cayenne.engine_power = '440 h/p'
 porsche_cayenne.color = 'black'
 porsche_cayenne.number_of_passengers = '5'
 porsche_cayenne.number_of_doors = '5'
-porsche_cayenne.show_car_specifications()
-porsche_cayenne.start_engine()
+#print(porsche_cayenne.__a)
+#porsche_cayenne.show_car_specifications()
+#porsche_cayenne.start_engine()
 
-ivan = Driver
+ivan = Driver()
 
 ivan.favorite_car = porsche_cayenne
-ivan.favorite_car()
+#print(ivan.favorite_car)
